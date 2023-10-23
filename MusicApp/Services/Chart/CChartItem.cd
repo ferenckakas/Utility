@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WebApp3.Models.CChartItemInfo">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAgCAAAAAALAAAAAAAAAACAQAAAAAQAAAAQ=</HashCode>
+      <FileName>Models\CChartItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.CChartItem">
+    <Position X="3.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgAABIAMAgBAAAAAAAAICAAAEAYAGBAAFQggQ=</HashCode>
+      <FileName>Models\CChartItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MovementImg" />
+      <Property Name="ChartItemInfo" />
+      <Property Name="Movement" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WebApp3.Models.CMovementImage">
+    <Position X="9.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAABAIAAAAAAAA=</HashCode>
+      <FileName>Models\CChartItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.CChartList">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAgAEAAAAAAAAAAQAAAACAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\CChartItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="List" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WebApp3.Models.CSelectedInfo">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Models\CSelectedInfo.cs</FileName>
+      <NewMemberFileName>Models\CLyricsInfo.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.CLyricsInfo">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAIAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\CLyricsInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="WebApp3.Models.EMovement">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAACAQAAAAAAAAQAAAAAAAAAAAAAAAABI=</HashCode>
+      <FileName>Models\CChartItem.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

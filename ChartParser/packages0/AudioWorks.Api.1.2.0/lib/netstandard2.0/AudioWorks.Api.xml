@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AudioWorks.Api</name>
+    </assembly>
+    <members>
+        <member name="T:AudioWorks.Api.AudioAnalyzerInfo">
+            <summary>
+            Provides information about an audio analyzer.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.AudioAnalyzerInfo.Name">
+            <summary>
+            Gets the name of the analyzer.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AudioWorks.Api.AudioAnalyzerInfo.Description">
+            <summary>
+            Gets a description of the analyzer.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:AudioWorks.Api.AudioAnalyzerManager">
+            <summary>
+            Provides information about the available analyzers, which are used by an <see cref="T:AudioWorks.Api.AudioFileAnalyzer"/>'s
+            Analyze method.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Api.AudioAnalyzerManager.GetSettingInfo(System.String)">
+            <summary>
+            Gets information about the available settings that can be passed to an <see cref="T:AudioWorks.Api.AudioFileAnalyzer"/>'s
+            Analyze method, for a given analyzer.
+            </summary>
+            <param name="name">The name of the analyzer.</param>
+            <returns>Information about the available settings.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="name"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioAnalyzerManager.GetAnalyzerInfo">
+            <summary>
+            Gets information about the available analyzers.
+            </summary>
+            <returns>The analyzer info.</returns>
+        </member>
+        <member name="T:AudioWorks.Api.AudioEncoderInfo">
+            <summary>
+            Provides information about an audio encoder.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.AudioEncoderInfo.Name">
+            <summary>
+            Gets the name of the encoder.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AudioWorks.Api.AudioEncoderInfo.Description">
+            <summary>
+            Gets a description of the encoder.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:AudioWorks.Api.AudioEncoderManager">
+            <summary>
+            Provides information about the available encoders, which are used by an <see cref="T:AudioWorks.Api.AudioFileEncoder"/>'s
+            Encode method.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Api.AudioEncoderManager.GetSettingInfo(System.String)">
+            <summary>
+            Gets information about the available settings that can be passed to an <see cref="T:AudioWorks.Api.AudioFileEncoder"/>'s
+            Encode method, for a given encoder.
+            </summary>
+            <param name="name">The name of the encoder.</param>
+            <returns>Information about the available settings.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="name"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioEncoderManager.GetEncoderInfo">
+            <summary>
+            Gets information about the available encoders.
+            </summary>
+            <returns>The encoder info.</returns>
+        </member>
+        <member name="T:AudioWorks.Api.AudioFile">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFile.Path">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFile.Info">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFile.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Api.AudioFile"/> class.
+            </summary>
+            <param name="path">The fully-qualified path to the file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="path"/> is null or empty.</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown if <paramref name="path"/> does not exist.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Throw in the directory does not exist.</exception>
+            <exception cref="T:System.UnauthorizedAccessException">Thrown if <paramref name="path"/> cannot be accessed due to
+            permissions.</exception>
+            <exception cref="T:System.IO.PathTooLongException">Thrown if <paramref name="path"/> is too long.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFile.Rename(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Api.AudioFileAnalyzer">
+            <summary>
+            Performs analysis on one or more audio files.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileAnalyzer.MaxDegreeOfParallelism">
+            <summary>
+            Gets or sets the maximum degree of parallelism. The default value is equal to
+            <see cref="P:System.Environment.ProcessorCount"/>.
+            </summary>
+            <value>The maximum degree of parallelism.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is less than 1.</exception>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileAnalyzer.Settings">
+            <summary>
+            Gets the settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileAnalyzer.#ctor(System.String,AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Api.AudioFileAnalyzer"/> class.
+            </summary>
+            <param name="name">The name of the analyzer.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="name"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <see paramref="name"/> is not the name of an available analyzer.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileAnalyzer.AnalyzeAsync(System.Collections.Generic.IEnumerable{AudioWorks.Common.ITaggedAudioFile})">
+            <summary>
+            Analyzes the specified audio files.
+            </summary>
+            <param name="audioFiles">The audio files.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileAnalyzer.AnalyzeAsync(System.Collections.Generic.IEnumerable{AudioWorks.Common.ITaggedAudioFile},System.Threading.CancellationToken,System.IProgress{AudioWorks.Api.ProgressToken})">
+            <summary>
+            Analyzes the specified audio files.
+            </summary>
+            <param name="audioFiles">The audio files.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress queue, or <c>null</c>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileAnalyzer.AnalyzeAsync(AudioWorks.Common.ITaggedAudioFile[])">
+            <summary>
+            Analyzes the specified audio files.
+            </summary>
+            <param name="audioFiles">The audio files.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileAnalyzer.AnalyzeAsync(System.Threading.CancellationToken,AudioWorks.Common.ITaggedAudioFile[])">
+            <summary>
+            Analyzes the specified audio files.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="audioFiles">The audio files.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileAnalyzer.AnalyzeAsync(System.IProgress{AudioWorks.Api.ProgressToken},System.Threading.CancellationToken,AudioWorks.Common.ITaggedAudioFile[])">
+            <summary>
+            Analyzes the specified audio files.
+            </summary>
+            <param name="progress">The progress queue, or <c>null</c>.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="audioFiles">The audio files.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="T:AudioWorks.Api.AudioFileEncoder">
+            <summary>
+            Encodes one or more audio files in a new audio format.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileEncoder.Overwrite">
+            <summary>
+            Gets or sets a value indicating whether existing files should be overwritten.
+            </summary>
+            <value><c>true</c> if files should be overwritten; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileEncoder.MaxDegreeOfParallelism">
+            <summary>
+            Gets or sets the maximum degree of parallelism. The default value is equal to
+            <see cref="P:System.Environment.ProcessorCount"/>.
+            </summary>
+            <value>The maximum degree of parallelism.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throw in <paramref name="value"/> is less than 1.</exception>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileEncoder.Settings">
+            <summary>
+            Gets the settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileEncoder.#ctor(System.String,System.String,System.String,AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Api.AudioFileEncoder"/> class.
+            </summary>
+            <param name="name">The name of the encoder.</param>
+            <param name="encodedDirectoryName">The encoded directory name, or null.</param>
+            <param name="encodedFileName">The encode file name, or null.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="name"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <see paramref="name"/> is not the name of an available encoder.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileEncoder.EncodeAsync(System.Collections.Generic.IEnumerable{AudioWorks.Common.ITaggedAudioFile})">
+            <summary>
+            Encodes the specified audio files.
+            </summary>
+            <param name="audioFiles">The audio files.</param>
+            <returns>A new audio file.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileEncoder.EncodeAsync(System.Collections.Generic.IEnumerable{AudioWorks.Common.ITaggedAudioFile},System.Threading.CancellationToken,System.IProgress{AudioWorks.Api.ProgressToken})">
+            <summary>
+            Encodes the specified audio files.
+            </summary>
+            <param name="audioFiles">The audio files.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="progress">The progress queue, or <c>null</c>.</param>
+            <returns>A new audio file.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileEncoder.EncodeAsync(AudioWorks.Common.ITaggedAudioFile[])">
+            <summary>
+            Encodes the specified audio files.
+            </summary>
+            <param name="audioFiles">The audio files.</param>
+            <returns>A new audio file.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileEncoder.EncodeAsync(System.Threading.CancellationToken,AudioWorks.Common.ITaggedAudioFile[])">
+            <summary>
+            Encodes the specified audio files.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="audioFiles">The audio files.</param>
+            <returns>A new audio file.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileEncoder.EncodeAsync(System.IProgress{AudioWorks.Api.ProgressToken},System.Threading.CancellationToken,AudioWorks.Common.ITaggedAudioFile[])">
+            <summary>
+            Encodes the specified audio files.
+            </summary>
+            <param name="progress">The progress queue, or <c>null</c>.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="audioFiles">The audio files.</param>
+            <returns>A new audio file.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <see paramref="audioFiles"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more audio files are null.</exception>
+        </member>
+        <member name="T:AudioWorks.Api.AudioFileFormatInfo">
+            <summary>
+            Provides information about an audio file format.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileFormatInfo.Extension">
+            <summary>
+            Gets the file extension that this format uses.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="P:AudioWorks.Api.AudioFileFormatInfo.Format">
+            <summary>
+            Gets the audio format.
+            </summary>
+            <value>The format.</value>
+        </member>
+        <member name="T:AudioWorks.Api.AudioFileManager">
+            <summary>
+            Provides information about available audio file formats, and helper methods for loading them.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Api.AudioFileManager.GetFormatInfo">
+            <summary>
+            Gets information about the available audio file formats.
+            </summary>
+            <returns>The format info.</returns>
+        </member>
+        <member name="T:AudioWorks.Api.AudioMetadataEncoderInfo">
+            <summary>
+            Provides information about a metadata encoder.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.AudioMetadataEncoderInfo.Extension">
+            <summary>
+            Gets the file extension that this metadata encoder supports.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="P:AudioWorks.Api.AudioMetadataEncoderInfo.Format">
+            <summary>
+            Gets the name of the format written by this metadata encoder.
+            </summary>
+            <value>The format.</value>
+        </member>
+        <member name="P:AudioWorks.Api.AudioMetadataEncoderInfo.Description">
+            <summary>
+            Gets a description of the format written by this metadata encoder.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:AudioWorks.Api.AudioMetadataEncoderManager">
+            <summary>
+            Provides information about the available metadata encoders, which are used by an
+            <see cref="T:AudioWorks.Common.ITaggedAudioFile"/>'s SaveMetadata method.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Api.AudioMetadataEncoderManager.GetSettingInfoByExtension(System.String)">
+            <summary>
+            Gets information about the available settings that can be passed to an <see cref="T:AudioWorks.Common.ITaggedAudioFile"/>'s
+            SaveMetadata method, for a given file extension.
+            </summary>
+            <param name="extension">The file extension.</param>
+            <returns>Information about the available settings.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="extension"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioMetadataEncoderManager.GetSettingInfoByFormat(System.String)">
+            <summary>
+            Gets information about the available settings that can be passed to an <see cref="T:AudioWorks.Common.ITaggedAudioFile"/>'s
+            SaveMetadata method, for a given metadata format.
+            </summary>
+            <param name="format">The format.</param>
+            <returns>Information about the available settings.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="format"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.AudioMetadataEncoderManager.GetEncoderInfo">
+            <summary>
+            Gets information about the available metadata encoders.
+            </summary>
+            <returns>The encoder info.</returns>
+        </member>
+        <member name="T:AudioWorks.Api.CoverArtExtractor">
+            <summary>
+            Extracts cover art from audio files.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.CoverArtExtractor.Overwrite">
+            <summary>
+            Gets or sets a value indicating whether existing files should be overwritten.
+            </summary>
+            <value><c>true</c> if files should be overwritten; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:AudioWorks.Api.CoverArtExtractor.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Api.CoverArtExtractor"/> class.
+            </summary>
+            <param name="encodedDirectoryName">The encoded directory name, or null.</param>
+            <param name="encodedFileName">The encode file name, or null.</param>
+        </member>
+        <member name="M:AudioWorks.Api.CoverArtExtractor.Extract(AudioWorks.Common.ITaggedAudioFile)">
+            <summary>
+            Extracts the specified audio file's cover art to an image file. This method returns null if cover art is
+            not present.
+            </summary>
+            <param name="audioFile">The audio file.</param>
+            <returns>An image file.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="audioFile"/> is null.</exception>
+            <exception cref="T:System.IO.IOException">Throw if the image file already exists, and overwrite was not enabled in the
+            constructor.</exception>
+        </member>
+        <member name="T:AudioWorks.Api.ExtensionInstaller">
+            <summary>
+            Responsible for downloading and installing extensions.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.ExtensionInstaller.ExtensionRoot">
+            <summary>
+            Gets the framework-specific extension root directory.
+            </summary>
+            <value>The extension root.</value>
+        </member>
+        <member name="P:AudioWorks.Api.ExtensionInstaller.LoadComplete">
+            <summary>
+            Gets a value indicating whether extensions have already been loaded for this session and can no longer be installed.
+            </summary>
+            <value><c>true</c> if extension loading is already complete; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:AudioWorks.Api.ExtensionInstaller.InstallAsync">
+            <summary>
+            Downloads and installs all available extensions.
+            </summary>
+        </member>
+        <member name="T:AudioWorks.Api.ProgressToken">
+            <summary>
+            Represents progress for an asynchronous activity.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Api.ProgressToken.AudioFilesCompleted">
+            <summary>
+            Gets the total # of audio files completed since the activity started.
+            </summary>
+            <value>The # of audio files completed.</value>
+        </member>
+        <member name="P:AudioWorks.Api.ProgressToken.FramesCompleted">
+            <summary>
+            Gets the total # of frames completed since the activity started.
+            </summary>
+            <value>The # of frames completed.</value>
+        </member>
+        <member name="T:AudioWorks.Api.SimpleProgress`1">
+            <summary>
+            An <see cref="T:System.IProgress`1"/> implementation that simply invokes the callbacks on the same thread, rather than
+            attempting to capture the synchronization context like <see cref="T:System.Progress`1"/>.
+            </summary>
+            <typeparam name="T">Specifies the type of the progress report value.</typeparam>
+            <seealso cref="T:System.IProgress`1"/>
+        </member>
+        <member name="M:AudioWorks.Api.SimpleProgress`1.#ctor(System.Action{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Api.SimpleProgress`1"/> class.
+            </summary>
+            <param name="handler">The handler to invoke for each reported progress value.</param>
+        </member>
+        <member name="M:AudioWorks.Api.SimpleProgress`1.Report(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Api.TaggedAudioFile">
+            <inheritdoc cref="T:AudioWorks.Common.ITaggedAudioFile"/>
+        </member>
+        <member name="P:AudioWorks.Api.TaggedAudioFile.Metadata">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Api.TaggedAudioFile.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Api.TaggedAudioFile"/> class.
+            </summary>
+            <param name="path">The fully-qualified path to the file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="path"/> is null or empty.</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown if <paramref name="path"/> does not exist.</exception>
+        </member>
+        <member name="M:AudioWorks.Api.TaggedAudioFile.LoadMetadata">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Api.TaggedAudioFile.SaveMetadata(AudioWorks.Common.SettingDictionary)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Api.TaggedAudioFile.Rename(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

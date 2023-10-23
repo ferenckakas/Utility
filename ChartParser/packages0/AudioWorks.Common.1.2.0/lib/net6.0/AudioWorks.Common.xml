@@ -1,0 +1,876 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AudioWorks.Common</name>
+    </assembly>
+    <members>
+        <member name="T:AudioWorks.Common.AudioEncodingException">
+            <summary>
+            Represents errors that occur during the encoding of a new <see cref="T:AudioWorks.Common.IAudioFile"/>.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.AudioException"/>
+        </member>
+        <member name="M:AudioWorks.Common.AudioEncodingException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioEncodingException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioEncodingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioEncodingException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioEncodingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioEncodingException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioEncodingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioEncodingException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.AudioException">
+            <summary>
+            Represents errors that occur during the reading of an <see cref="T:AudioWorks.Common.IAudioFile"/>.
+            </summary>
+            <seealso cref="T:System.Exception"/>
+        </member>
+        <member name="M:AudioWorks.Common.AudioException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.AudioInfo">
+            <summary>
+            Contains information about the audio itself, which cannot be modified without re-encoding.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInfo.CreateForLossless(System.String,System.Int32,System.Int32,System.Int32,System.Int64)">
+            <summary>
+            Creates a new instance of the <see cref="T:AudioWorks.Common.AudioInfo"/> class describing a lossless audio file.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="channels">The # of channels.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <param name="sampleRate">The sample rate (in samples per second).</param>
+            <param name="frameCount">The frame count, or 0 if unknown.</param>
+            <returns>The instance.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="format"/> is null or empty.</exception>
+            <exception cref="T:AudioWorks.Common.AudioInvalidException">Thrown if one or more parameters is out of valid range.</exception>
+            <exception cref="T:AudioWorks.Common.AudioUnsupportedException">Thrown if one or more parameters is out of the range supported
+            by AudioWorks.</exception>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInfo.CreateForLossy(System.String,System.Int32,System.Int32,System.Int64,System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:AudioWorks.Common.AudioInfo"/> class describing a lossy-compressed audio file.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="channels">The # of channels.</param>
+            <param name="sampleRate">The sample rate (in samples per second).</param>
+            <param name="frameCount">The frame count, or 0 if unknown.</param>
+            <param name="bitRate">The bit rate (in bits per second).</param>
+            <returns>The instance.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="format"/> is null or empty.</exception>
+            <exception cref="T:AudioWorks.Common.AudioInvalidException">Thrown if one or more parameters is out of valid range.</exception>
+            <exception cref="T:AudioWorks.Common.AudioUnsupportedException">Thrown if one or more parameters is out of the range supported
+            by AudioWorks.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.Format">
+            <summary>
+            Gets the format.
+            </summary>
+            <value>The format.</value>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.Channels">
+            <summary>
+            Gets the # of channels.
+            </summary>
+            <value>The # of channels.</value>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.BitsPerSample">
+            <summary>
+            Gets the # of bits per sample, or 0 for lossy files.
+            </summary>
+            <value>The # of bits per sample.</value>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.SampleRate">
+            <summary>
+            Gets the sample rate (in samples per second).
+            </summary>
+            <value>The sample rate.</value>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.BitRate">
+            <summary>
+            Gets the bit rate (in bits per second).
+            </summary>
+            <value>The bit rate.</value>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.FrameCount">
+            <summary>
+            Gets the frame count, or 0 if unknown.
+            </summary>
+            <value>The frame count.</value>
+        </member>
+        <member name="P:AudioWorks.Common.AudioInfo.PlayLength">
+            <summary>
+            Gets the play length, which is 0 if the frame count is unknown.
+            </summary>
+            <value>The play length.</value>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInfo.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioInfo"/> class. You should normally use the
+            <see cref="M:AudioWorks.Common.AudioInfo.CreateForLossy(System.String,System.Int32,System.Int32,System.Int64,System.Int32)"/> and <see cref="M:AudioWorks.Common.AudioInfo.CreateForLossless(System.String,System.Int32,System.Int32,System.Int32,System.Int64)"/> static helper methods for creating new
+            instances.
+            </summary>
+            <param name="format"></param>
+            <param name="channels"></param>
+            <param name="bitsPerSample"></param>
+            <param name="sampleRate"></param>
+            <param name="bitRate"></param>
+            <param name="frameCount"></param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="format"/> is null or empty.</exception>
+            <exception cref="T:AudioWorks.Common.AudioInvalidException">Thrown if one or more parameters is out of valid range.</exception>
+            <exception cref="T:AudioWorks.Common.AudioUnsupportedException">Thrown if one or more parameters is out of the range supported
+            by AudioWorks.</exception>
+        </member>
+        <member name="T:AudioWorks.Common.AudioInvalidException">
+            <summary>
+            Represents errors that occur during the reading of an <see cref="T:AudioWorks.Common.IAudioFile"/> that are the result of invalid
+            data.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.AudioException"/>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInvalidException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioInvalidException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInvalidException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioInvalidException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInvalidException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioInvalidException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioInvalidException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioInvalidException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.AudioMetadata">
+            <summary>
+            Contains mutable metadata about the audio file.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Title">
+            <summary>
+            Gets or sets the title. To clear the title, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The title.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Artist">
+            <summary>
+            Gets or sets the artist. To clear the artist, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The artist.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Album">
+            <summary>
+            Gets or sets the album. To clear the album, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The album.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.AlbumArtist">
+            <summary>
+            Gets or sets the album artist. To clear the album artist, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The album artist.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Composer">
+            <summary>
+            Gets or sets the composer. To clear the composer, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The composer.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Genre">
+            <summary>
+            Gets or sets the genre. To clear the genre, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The genre.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Comment">
+            <summary>
+            Gets or sets the comment. To clear the comment, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The comment.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Day">
+            <summary>
+            Gets or sets the day of the month as a number from 1 to 31. To clear the day, set an empty
+            <paramref name="value"/>.
+            </summary>
+            <value>The day of the month.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Month">
+            <summary>
+            Gets or sets the month as a number from 1 to 12. To clear the month, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The month.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.Year">
+            <summary>
+            Gets or sets the year. To clear the year, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The year.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.TrackNumber">
+            <summary>
+            Gets or sets the track number. To clear the track number, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The track number.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.TrackCount">
+            <summary>
+            Gets or sets the track count. To clear the track count, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The track count.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.TrackPeak">
+            <summary>
+            Gets or sets the track's peak amplitude. To clear the track peak, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The track peak.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.AlbumPeak">
+            <summary>
+            Gets or sets the album's peak amplitude. To clear the album peak, set an empty <paramref name="value"/>.
+            </summary>
+            <value>The album peak.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.TrackGain">
+            <summary>
+            Gets or sets the track's desired gain adjustment, in dB. To clear the track gain, set an empty
+            <paramref name="value"/>.
+            </summary>
+            <value>The track gain.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.AlbumGain">
+            <summary>
+            Gets or sets the album's desired gain adjustment, in dB. To clear the album gain, set an empty
+            <paramref name="value"/>.
+            </summary>
+            <value>The album gain.</value>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            <exception cref="T:AudioWorks.Common.AudioMetadataInvalidException">Thrown if <paramref name="value"/> is not valid.
+            </exception>
+        </member>
+        <member name="P:AudioWorks.Common.AudioMetadata.CoverArt">
+            <summary>
+            Gets or sets the cover art. To clear the cover art, set a null <paramref name="value"/>.
+            </summary>
+            <value>The cover art.</value>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadata.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioMetadata"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadata.#ctor(AudioWorks.Common.AudioMetadata)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioMetadata"/> class by copying an existing
+            <see cref="T:AudioWorks.Common.AudioMetadata"/> object.
+            </summary>
+            <param name="metadata">The <see cref="T:AudioWorks.Common.AudioMetadata"/> object to copy.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="metadata"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadata.Clear">
+            <summary>
+            Clears all properties.
+            </summary>
+        </member>
+        <member name="T:AudioWorks.Common.AudioMetadataInvalidException">
+            <summary>
+            Represents errors that occur during the reading of an <see cref="T:AudioWorks.Common.ITaggedAudioFile"/> that are the result of
+            invalid metadata.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.AudioException"/>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadataInvalidException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioMetadataInvalidException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadataInvalidException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioMetadataInvalidException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadataInvalidException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioMetadataInvalidException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioMetadataInvalidException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioMetadataInvalidException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.AudioUnsupportedException">
+            <summary>
+            Represents errors that occur during the reading of an <see cref="T:AudioWorks.Common.IAudioFile"/> that are the result of
+            encountered unsupported data.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.AudioException"/>
+        </member>
+        <member name="M:AudioWorks.Common.AudioUnsupportedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioUnsupportedException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.AudioUnsupportedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioUnsupportedException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioUnsupportedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioUnsupportedException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.AudioUnsupportedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.AudioUnsupportedException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.BoolSettingInfo">
+            <summary>
+            Describes a setting which can be either true or false.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.SettingInfo"/>
+        </member>
+        <member name="M:AudioWorks.Common.BoolSettingInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.BoolSettingInfo"/> class.
+            </summary>
+        </member>
+        <member name="T:AudioWorks.Common.ConfigurationManager">
+            <summary>
+            Manages the retrieval of configuration settings from disk.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Common.ConfigurationManager.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="T:AudioWorks.Common.CoverArt">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.ColorDepth">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.Lossless">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.MimeType">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.FileExtension">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.CoverArt.Data">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Common.CoverArtFactory">
+            <summary>
+            Provides static methods for creating <see cref="T:AudioWorks.Common.ICoverArt"/> objects.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.CoverArtFactory.GetOrCreate(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Returns an <see cref="T:AudioWorks.Common.ICoverArt"/> object from a byte array.
+            </summary>
+            <remarks>
+            If an identical image has already been loaded into memory, this method will return a copy of the existing
+            <see cref="T:AudioWorks.Common.ICoverArt"/> instance.
+            </remarks>
+            <param name="data">The raw image data.</param>
+            <exception cref="T:AudioWorks.Common.ImageUnsupportedException">Thrown if <paramref name="data"/> is not in a supported image
+            format.</exception>
+            <exception cref="T:AudioWorks.Common.ImageInvalidException">Thrown if <paramref name="data"/> is not a valid image.</exception>
+        </member>
+        <member name="M:AudioWorks.Common.CoverArtFactory.GetOrCreate(System.String)">
+            <summary>
+            Returns an <see cref="T:AudioWorks.Common.ICoverArt"/> object for an image file.
+            </summary>
+            <remarks>
+            If an identical image has already been loaded into memory, this method will return a copy of the existing
+            <see cref="T:AudioWorks.Common.ICoverArt"/> instance.
+            </remarks>
+            <param name="path">The fully-qualified path to the file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="path"/> is null or empty.</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown if <paramref name="path"/> does not exist.</exception>
+            <exception cref="T:AudioWorks.Common.ImageUnsupportedException">Thrown if <paramref name="path"/> is not in a supported image
+            format.</exception>
+            <exception cref="T:AudioWorks.Common.ImageInvalidException">Thrown if <paramref name="path"/> is not a valid image file.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Common.CoverArtFactory.ConvertToLossy(AudioWorks.Common.ICoverArt)">
+            <summary>
+            Creates a lossy <see cref="T:AudioWorks.Common.ICoverArt"/> from a lossless one. If <paramref name="coverArt"/> is already
+            lossless, this method returns it unmodified.
+            </summary>
+            <param name="coverArt">The cover art.</param>
+            <returns>A lossy copy of an <see cref="T:AudioWorks.Common.ICoverArt"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="coverArt"/> is null.</exception>
+        </member>
+        <member name="T:AudioWorks.Common.DateTimeSettingInfo">
+            <summary>
+            Describes a date and time setting.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.SettingInfo"/>
+        </member>
+        <member name="M:AudioWorks.Common.DateTimeSettingInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.DateTimeSettingInfo"/> class.
+            </summary>
+        </member>
+        <member name="T:AudioWorks.Common.IAudioFile">
+            <summary>
+            The primary base type for working with AudioWorks. Represents a single track of audio within the filesystem.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Common.IAudioFile.Path">
+            <summary>
+            Gets the fully-qualified file path.
+            </summary>
+            <value>The file path.</value>
+        </member>
+        <member name="P:AudioWorks.Common.IAudioFile.Info">
+            <summary>
+            Gets the audio information.
+            </summary>
+            <value>The audio information.</value>
+        </member>
+        <member name="M:AudioWorks.Common.IAudioFile.Rename(System.String,System.Boolean)">
+            <summary>
+            Renames the audio file.
+            </summary>
+            <param name="name">The new file name, not including the extension.</param>
+            <param name="replace">if set to <c>true</c> and the new file name already exists, replace it.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="name" /> is null or empty.</exception>
+            <exception cref="T:System.IO.IOException">Thrown if the new file already exists, and <paramref name="replace"/> is
+            <c>false</c>.</exception>
+        </member>
+        <member name="T:AudioWorks.Common.ICoverArt">
+            <summary>
+            Represents a cover art image.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>The width.</value>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.ColorDepth">
+            <summary>
+            Gets the color depth.
+            </summary>
+            <value>The color depth.</value>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.Lossless">
+            <summary>
+            Gets a value indicating whether this <see cref="T:AudioWorks.Common.CoverArt"/> is lossless (stored in PNG format).
+            </summary>
+            <value><c>true</c> if the image is lossless; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.MimeType">
+            <summary>
+            Gets the MIME type.
+            </summary>
+            <value>The MIME type.</value>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.FileExtension">
+            <summary>
+            Gets the default file extension (.png for lossless, or .jpg for lossy files).
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="P:AudioWorks.Common.ICoverArt.Data">
+            <summary>
+            Gets the raw image data.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="T:AudioWorks.Common.ImageInvalidException">
+            <summary>
+            Represents errors that occur during the reading of a cover art image that are the result of encountering
+            unexpected or invalid data.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.AudioException"/>
+        </member>
+        <member name="M:AudioWorks.Common.ImageInvalidException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageInvalidException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.ImageInvalidException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageInvalidException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.ImageInvalidException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageInvalidException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.ImageInvalidException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageInvalidException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.ImageUnsupportedException">
+            <summary>
+            Represents errors that occur during the reading of a cover art image that are the result of encountering
+            unsupported data.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.AudioException"/>
+        </member>
+        <member name="M:AudioWorks.Common.ImageUnsupportedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageUnsupportedException"/> class.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.ImageUnsupportedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageUnsupportedException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AudioWorks.Common.ImageUnsupportedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageUnsupportedException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:AudioWorks.Common.ImageUnsupportedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.ImageUnsupportedException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the
+            exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the
+            source or destination.</param>
+        </member>
+        <member name="T:AudioWorks.Common.IntSettingInfo">
+            <summary>
+            Describes an integer setting which has maximum and minimum values.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.SettingInfo"/>
+        </member>
+        <member name="P:AudioWorks.Common.IntSettingInfo.MinValue">
+            <summary>
+            Gets the minimum value for the integer.
+            </summary>
+            <value>The minimum value.</value>
+        </member>
+        <member name="P:AudioWorks.Common.IntSettingInfo.MaxValue">
+            <summary>
+            Gets the maximum value for the integer.
+            </summary>
+            <value>The maximum value.</value>
+        </member>
+        <member name="M:AudioWorks.Common.IntSettingInfo.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.IntSettingInfo"/> class.
+            </summary>
+            <param name="minValue">The minimum value for the integer.</param>
+            <param name="maxValue">The maximum value for the integer.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="minValue"/> is larger than
+            <paramref name="maxValue"/>.</exception>
+        </member>
+        <member name="M:AudioWorks.Common.IntSettingInfo.Validate(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Common.ITaggedAudioFile">
+            <summary>
+            Represents a single track of audio on the filesystem that may or may not contain a metadata "tag".
+            </summary>
+            <seealso cref="T:AudioWorks.Common.IAudioFile"/>
+        </member>
+        <member name="P:AudioWorks.Common.ITaggedAudioFile.Metadata">
+            <summary>
+            Gets the metadata.
+            </summary>
+            <value>The metadata.</value>
+        </member>
+        <member name="M:AudioWorks.Common.ITaggedAudioFile.LoadMetadata">
+            <summary>
+            Loads the metadata from disk, replacing the current values.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Common.ITaggedAudioFile.SaveMetadata(AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Persists the current metadata to disk.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="T:AudioWorks.Common.LoggerManager">
+            <summary>
+            Manages logging to various destinations.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Common.LoggerManager.LoggerFactory">
+            <summary>
+            Gets the singleton logger factory.
+            </summary>
+            <value>The logger factory.</value>
+        </member>
+        <member name="M:AudioWorks.Common.LoggerManager.AddSingletonProvider``1(System.Func{``0})">
+            <summary>
+            Adds an instance of type {T} to the <see cref="P:AudioWorks.Common.LoggerManager.LoggerFactory"/>, if one of the same type hasn't already
+            been added.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/> requested.</typeparam>
+            <param name="createProviderFunc">A function called if a new provider is required.</param>
+            <returns>The new provider, or an existing one if there is already one of type <typeparamref name="T"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="createProviderFunc"/> is null.</exception>
+        </member>
+        <member name="T:AudioWorks.Common.SettingDictionary">
+            <summary>
+            Represents a dictionary of settings which you can pass to various methods.
+            </summary>
+            <seealso cref="T:System.Collections.Generic.Dictionary`2"/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.TryGetValue``1(System.String,``0@)">
+            <summary>
+            Gets the value associated with the specified key and of the specified type.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>true, if the value is present in the dictionary. Otherwise, false.</returns>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.Add(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.Contains(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.String,System.Object}[],System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.Remove(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.SettingDictionary.Count">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.SettingDictionary.IsReadOnly">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.Add(System.String,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.ContainsKey(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.Remove(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingDictionary.TryGetValue(System.String,System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.SettingDictionary.Item(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.SettingDictionary.Keys">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Common.SettingDictionary.Values">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Common.SettingInfo">
+            <summary>
+            Describes a setting of a specific <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Common.SettingInfo.ValueType">
+            <summary>
+            Gets the type of the setting value.
+            </summary>
+            <value>The type of the setting value.</value>
+        </member>
+        <member name="M:AudioWorks.Common.SettingInfo.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.SettingInfo"/> class.
+            </summary>
+            <param name="valueType">Type of the setting value.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="valueType"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Common.SettingInfo.Validate(System.Object)">
+            <summary>
+            Validates the specified value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:AudioWorks.Common.SettingInfoDictionary">
+            <summary>
+            Represents a dictionary of strings and <see cref="T:AudioWorks.Common.SettingInfo"/> objects describing the settings which you can
+            pass to various methods.
+            </summary>
+            <seealso cref="T:System.Collections.Generic.Dictionary`2"/>
+        </member>
+        <member name="M:AudioWorks.Common.SettingInfoDictionary.ValidateSettings(AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Validates a settings dictionary against this <see cref="T:AudioWorks.Common.SettingInfoDictionary"/>.
+            </summary>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="settings"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if one or more settings are not valid.</exception>
+        </member>
+        <member name="T:AudioWorks.Common.StringSettingInfo">
+            <summary>
+            Describes a string setting which has a limited number of accepted values.
+            </summary>
+            <seealso cref="T:AudioWorks.Common.SettingInfo"/>
+        </member>
+        <member name="P:AudioWorks.Common.StringSettingInfo.AcceptedValues">
+            <summary>
+            Gets the accepted values.
+            </summary>
+            <value>The accepted values.</value>
+        </member>
+        <member name="M:AudioWorks.Common.StringSettingInfo.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Common.StringSettingInfo"/> class.
+            </summary>
+            <param name="acceptedValues">The accepted values.</param>
+        </member>
+        <member name="M:AudioWorks.Common.StringSettingInfo.Validate(System.Object)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

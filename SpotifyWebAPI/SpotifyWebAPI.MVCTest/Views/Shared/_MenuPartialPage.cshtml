@@ -1,0 +1,17 @@
+﻿<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li>@Html.ActionLink("Artist Actions", "GetArtistAsync", "Artist")</li>
+        <li style="display: none;">@Html.ActionLink("Album Actions", "GetAlbumAsync", "Album")</li>
+        <li style="display: none;">@Html.ActionLink("Track Actions", "GetTrackAsync", "Track")</li>
+        <li style="display: none;">@Html.ActionLink("Authenticated Actions", "Index", "Authentication")</li>
+    </ul>
+</div>

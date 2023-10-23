@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{5644C29F-3269-4F98-84D7-5E3D4DFDA422}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{926CCDAD-6946-4249-AAAA-5DB2941A75E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6} = {8AAED1B1-D636-48C8-B496-4426B3A9F5F6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{226F1A2E-40B5-4C0A-96D3-8050729E49B2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6} = {8AAED1B1-D636-48C8-B496-4426B3A9F5F6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextDB", "TextDB\TextDB.csproj", "{D7EDBD57-336E-4FB4-BBB2-17C072206642}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyWebAPI", "..\SpotifyWebAPI\SpotifyWebAPI\SpotifyWebAPI.csproj", "{BC74E8E2-0A73-461F-90CC-274736BC010E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{6B847657-B502-4C8C-8F65-637434F60473}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5644C29F-3269-4F98-84D7-5E3D4DFDA422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5644C29F-3269-4F98-84D7-5E3D4DFDA422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5644C29F-3269-4F98-84D7-5E3D4DFDA422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5644C29F-3269-4F98-84D7-5E3D4DFDA422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926CCDAD-6946-4249-AAAA-5DB2941A75E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926CCDAD-6946-4249-AAAA-5DB2941A75E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926CCDAD-6946-4249-AAAA-5DB2941A75E6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{926CCDAD-6946-4249-AAAA-5DB2941A75E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926CCDAD-6946-4249-AAAA-5DB2941A75E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926CCDAD-6946-4249-AAAA-5DB2941A75E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7EDBD57-336E-4FB4-BBB2-17C072206642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7EDBD57-336E-4FB4-BBB2-17C072206642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7EDBD57-336E-4FB4-BBB2-17C072206642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7EDBD57-336E-4FB4-BBB2-17C072206642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08085112-F05F-48BF-AA7F-A77D2C5EBB90}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ferenckakas.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ConsoleApp\\ConsoleApp.csproj
+		SccProjectName1 = ConsoleApp
+		SccLocalPath1 = ConsoleApp
+		SccProjectUniqueName2 = Database\\Database.sqlproj
+		SccProjectName2 = Database
+		SccLocalPath2 = Database
+		SccProjectUniqueName3 = Services\\Services.csproj
+		SccProjectName3 = Services
+		SccLocalPath3 = Services
+		SccProjectUniqueName4 = Entities\\Entities.csproj
+		SccProjectName4 = Entities
+		SccLocalPath4 = Entities
+		SccProjectUniqueName5 = TextDB\\TextDB.csproj
+		SccProjectName5 = TextDB
+		SccLocalPath5 = TextDB
+		SccProjectUniqueName6 = ..\\SpotifyWebAPI\\SpotifyWebAPI\\SpotifyWebAPI.csproj
+		SccProjectName6 = ../SpotifyWebAPI/SpotifyWebAPI
+		SccLocalPath6 = ..\\SpotifyWebAPI\\SpotifyWebAPI
+		SccProjectUniqueName7 = Common\\Common.csproj
+		SccProjectName7 = Common
+		SccLocalPath7 = Common
+		SccProjectUniqueName8 = Helper\\Helper.csproj
+		SccProjectName8 = Helper
+		SccLocalPath8 = Helper
+	EndGlobalSection
+EndGlobal

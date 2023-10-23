@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="SpotifyWebAPI.Test.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title></title>
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            <div>
+                <a id="A9" href="~/Album/GetAlbum.aspx" runat="server">Album - Get Album</a>
+                <br />
+                <a id="A1" href="~/Album/GetAlbums.aspx" runat="server">Album - Get Albums</a>
+                <br />
+                <a id="A2" href="~/Album/GetArtistAlbums.aspx" runat="server">Album - Get Artist Albums</a>
+                <br />
+                <a id="A3" href="~/Album/GetAlbumTracks.aspx" runat="server">Album - Get Album Tracks</a>
+                <br />
+                <a id="A6" href="~/Album/GetArtistAlbums.aspx" runat="server">Album - Get Artist Albums</a>
+                <br />
+                <a id="A8" href="~/Album/Search.aspx" runat="server">Album - Search</a>
+                <br />
+                <br />
+                <a id="A4" href="~/Artist/GetArtist.aspx" runat="server">Artist - Get Artist</a>
+                <br />
+                <a id="A5" href="~/Artist/GetArtists.aspx" runat="server">Artist - Get Artists</a>        
+                <br />
+                <a id="A14" href="~/Artist/GetArtistAlbums.aspx" runat="server">Artist - Get Artist Albums</a>       
+                <br />
+                <a id="A15" href="~/Artist/GetTopTracks.aspx" runat="server">Artist - Get Top Tracks</a>           
+                <br />
+                <a id="A7" href="~/Artist/GetRelatedArtists.aspx" runat="server">Artist - Get Related Artists</a>
+                <br />
+                <a id="A10" href="~/Artist/Search.aspx" runat="server">Artist - Search</a>            
+                <br />
+                <br />
+                <a id="A12" href="~/Track/GetTrack.aspx" runat="server">Track - Get Track</a>            
+                <br />
+                <a id="A13" href="~/Track/GetTracks.aspx" runat="server">Track - Get Tracks</a>            
+                <br />
+                <a id="A11" href="~/Track/Search.aspx" runat="server">Track - Search</a>   
+            </div>         
+            <div>
+                <h2><asp:ContentPlaceHolder ID="titleContentPlaceHolder" runat="server" /></h2>
+                <p>
+                    <asp:ContentPlaceHolder ID="descriptionContentPlaceHolder" runat="server" />
+                </p>
+            </div>
+            <div>        
+                <h2>Object Output</h2>    
+                <p>
+                    <asp:Literal ID="output" runat="server" />
+                </p>           
+            </div>
+        </form>
+    </body>
+</html>

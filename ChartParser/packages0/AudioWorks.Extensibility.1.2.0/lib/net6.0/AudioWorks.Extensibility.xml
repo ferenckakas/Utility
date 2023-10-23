@@ -1,0 +1,700 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AudioWorks.Extensibility</name>
+    </assembly>
+    <members>
+        <member name="T:AudioWorks.Extensibility.AudioAnalyzerExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioAnalyzer"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioAnalyzerExportAttribute.Name">
+            <summary>
+            Gets the name of the analyzer.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioAnalyzerExportAttribute.Description">
+            <summary>
+            Gets a description of the analyzer.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioAnalyzerExportAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioAnalyzerExportAttribute"/> class.
+            </summary>
+            <param name="name">The analyzer name.</param>
+            <param name="description">The analyzer description.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if either <paramref name="name"/> or
+            <paramref name="description"/> is null or empty.</exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.AudioDecoderExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioDecoder"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioDecoderExportAttribute.Extension">
+            <summary>
+            Gets the file extension.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioDecoderExportAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioDecoderExportAttribute"/> class.
+            </summary>
+            <param name="extension">The file extension.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="extension"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="extension"/> is not a valid file extension.
+            </exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.AudioEncoderExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioEncoder"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioEncoderExportAttribute.Name">
+            <summary>
+            Gets the name of the encoder.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioEncoderExportAttribute.Description">
+            <summary>
+            Gets a description of the encoder.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioEncoderExportAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioEncoderExportAttribute"/> class.
+            </summary>
+            <param name="name">The encoder name.</param>
+            <param name="description">The encoder description.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if either <paramref name="name"/> or
+            <paramref name="description"/> is null or empty.</exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.AudioFilterExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioFilter"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioFilterExportAttribute.Name">
+            <summary>
+            Gets the name of the filter.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioFilterExportAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioFilterExportAttribute"/> class.
+            </summary>
+            <param name="name">The filter name.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="name"/> is null or empty.</exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.AudioInfoDecoderExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioInfoDecoder"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioInfoDecoderExportAttribute.Extension">
+            <summary>
+            Gets the file extension.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioInfoDecoderExportAttribute.Format">
+            <summary>
+            Gets the audio format.
+            </summary>
+            <value>The format.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioInfoDecoderExportAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioInfoDecoderExportAttribute"/> class.
+            </summary>
+            <param name="extension">The file extension.</param>
+            <param name="format">The audio format.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if either <paramref name="extension"/> or
+            <paramref name="format"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="extension"/> is not a valid file extension.
+            </exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.AudioMetadataDecoderExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioMetadataDecoder"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioMetadataDecoderExportAttribute.Extension">
+            <summary>
+            Gets the file extension.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioMetadataDecoderExportAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioMetadataDecoderExportAttribute"/> class.
+            </summary>
+            <param name="extension">The file extension.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="extension"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="extension"/> is not a valid file extension.
+            </exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.AudioMetadataEncoderExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IAudioMetadataEncoder"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioMetadataEncoderExportAttribute.Extension">
+            <summary>
+            Gets the file extension.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioMetadataEncoderExportAttribute.Format">
+            <summary>
+            Gets the metadata format.
+            </summary>
+            <value>The format.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.AudioMetadataEncoderExportAttribute.Description">
+            <summary>
+            Gets a description of the metadata format.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.AudioMetadataEncoderExportAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.AudioMetadataEncoderExportAttribute"/> class.
+            </summary>
+            <param name="extension">The file extension that this metadata encoder supports.</param>
+            <param name="format">The name of the format written by this metadata encoder.</param>
+            <param name="description">A description of the format written by this metadata encoder.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="extension"/>, <paramref name="format"/> or
+            <paramref name="description"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="extension"/> is not a valid file extension.
+            </exception>
+        </member>
+        <member name="T:AudioWorks.Extensibility.ExtensionLoadContext">
+            <summary>
+            An <see cref="T:System.Runtime.Loader.AssemblyLoadContext"/> that can load unmanaged libraries from a list of paths added at runtime.
+            Each AudioWorks extension is loaded into its own <see cref="T:AudioWorks.Extensibility.ExtensionLoadContext"/> instance.
+            </summary>
+            <seealso cref="T:System.Runtime.Loader.AssemblyLoadContext"/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.ExtensionLoadContext.AddUnmanagedLibraryPath(System.String)">
+            <summary>
+            Adds a path that contains unmanaged libraries. When an unmanaged method is called via
+            <see cref="T:System.Runtime.InteropServices.DllImportAttribute"/>, these paths are searched first before falling back on default resolution
+            behavior.
+            </summary>
+            <param name="path">The path.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="path"/> is null.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.ExtensionLoadContext.Load(System.Reflection.AssemblyName)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.ExtensionLoadContext.LoadUnmanagedDll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Extensibility.ExtensionProvider">
+            <summary>
+            Provides methods for accessing extensions of various types.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Extensibility.ExtensionProvider.GetFactories``1">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of extensions wrapped in <see cref="T:System.Composition.ExportFactory`1"/> objects to
+            control their lifetime.
+            </summary>
+            <typeparam name="T">The type of extension.</typeparam>
+            <returns>The extension factories.</returns>
+        </member>
+        <member name="M:AudioWorks.Extensibility.ExtensionProvider.GetFactories``1(System.String,System.String)">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of extensions wrapped in <see cref="T:System.Composition.ExportFactory`1"/> objects to
+            control their lifetime, filtered by metadata.
+            </summary>
+            <typeparam name="T">The type of extension.</typeparam>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>The extension factories.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.GroupToken">
+            <summary>
+            Identifies an audio file as a member of a group.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Extensibility.GroupToken.GetOrSetGroupState(System.Object)">
+            <summary>
+            Sets a group state object, or returns the current one if it has already been set.
+            </summary>
+            <remarks>
+            The group state object will automatically be disposed with the <see cref="T:AudioWorks.Extensibility.GroupToken"/>, if it implements
+            <see cref="T:System.IDisposable"/>.
+            </remarks>
+            <param name="groupState">A new group state object.</param>
+            <returns>The current group state</returns>
+        </member>
+        <member name="M:AudioWorks.Extensibility.GroupToken.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioAnalyzer">
+            <summary>
+            An extension that can analyze audio samples.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioAnalyzer.SettingInfo">
+            <summary>
+            Gets information about the settings that can be passed to the <see cref="M:AudioWorks.Extensibility.IAudioAnalyzer.Initialize(AudioWorks.Common.AudioInfo,AudioWorks.Common.SettingDictionary,AudioWorks.Extensibility.GroupToken)"/> method.
+            </summary>
+            <value>The setting information.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioAnalyzer.Initialize(AudioWorks.Common.AudioInfo,AudioWorks.Common.SettingDictionary,AudioWorks.Extensibility.GroupToken)">
+            <summary>
+            Initializes the analyzer.
+            </summary>
+            <param name="info">The audio information.</param>
+            <param name="settings">The settings.</param>
+            <param name="groupToken">The group token.</param>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioAnalyzer.GetResult">
+            <summary>
+            Gets the result.
+            </summary>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioAnalyzer.GetGroupResult">
+            <summary>
+            Gets the result for a group.
+            </summary>
+            <returns>The result.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioDecoder">
+            <summary>
+            An extension that can decode an audio stream.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioDecoder.Finished">
+            <summary>
+            Gets a value indicating whether this <see cref="T:AudioWorks.Extensibility.IAudioDecoder"/> is finished.
+            </summary>
+            <value><c>true</c> if finished; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioDecoder.Initialize(System.IO.Stream)">
+            <summary>
+            Initializes the decoder.
+            </summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioDecoder.DecodeSamples">
+            <summary>
+            Decodes a collection of samples.
+            </summary>
+            <returns>The samples.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioEncoder">
+            <summary>
+            An extension that can encode audio samples into a specific format.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioEncoder.SettingInfo">
+            <summary>
+            Gets information about the settings that can be passed to the <see cref="M:AudioWorks.Extensibility.IAudioEncoder.Initialize(System.IO.Stream,AudioWorks.Common.AudioInfo,AudioWorks.Common.AudioMetadata,AudioWorks.Common.SettingDictionary)"/> method.
+            </summary>
+            <value>The setting information.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioEncoder.FileExtension">
+            <summary>
+            Gets the file extension used by the encoder.
+            </summary>
+            <value>The file extension.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioEncoder.Initialize(System.IO.Stream,AudioWorks.Common.AudioInfo,AudioWorks.Common.AudioMetadata,AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Initializes the encoder.
+            </summary>
+            <param name="stream">The output stream.</param>
+            <param name="info">The audio information.</param>
+            <param name="metadata">The audio metadata.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioEncoder.Finish">
+            <summary>
+            Finishes encoding.
+            </summary>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioFilter">
+            <summary>
+            An extension that processes samples.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioFilter.SettingInfo">
+            <summary>
+            Gets information about the settings that can be passed to the <see cref="M:AudioWorks.Extensibility.IAudioFilter.Process(AudioWorks.Extensibility.SampleBuffer)"/> method.
+            </summary>
+            <value>The setting information.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioFilter.Initialize(AudioWorks.Common.AudioInfo,AudioWorks.Common.AudioMetadata,AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Initializes the filter.
+            </summary>
+            <param name="info">The audio information.</param>
+            <param name="metadata">The audio metadata.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioFilter.Process(AudioWorks.Extensibility.SampleBuffer)">
+            <summary>
+            Processes the specified samples.
+            </summary>
+            <param name="samples">The samples.</param>
+            <returns>The modified samples.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioInfoDecoder">
+            <summary>
+            An extension that can read basic information about an audio stream.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioInfoDecoder.Format">
+            <summary>
+            Gets the name of the audio format decoded by this extension.
+            </summary>
+            <value>The audio format.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioInfoDecoder.ReadAudioInfo(System.IO.Stream)">
+            <summary>
+            Reads the audio information from a stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns>The audio information.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioMetadataDecoder">
+            <summary>
+            An extension that can read metadata from an audio stream.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioMetadataDecoder.Format">
+            <summary>
+            Gets the name of the metadata format decoded by this extension.
+            </summary>
+            <value>The metadata format.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioMetadataDecoder.ReadMetadata(System.IO.Stream)">
+            <summary>
+            Reads the metadata.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns>The metadata.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IAudioMetadataEncoder">
+            <summary>
+            An extension that can write metadata to an audio stream.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.IAudioMetadataEncoder.SettingInfo">
+            <summary>
+            Gets information about the settings that can be passed to the <see cref="M:AudioWorks.Extensibility.IAudioMetadataEncoder.WriteMetadata(System.IO.Stream,AudioWorks.Common.AudioMetadata,AudioWorks.Common.SettingDictionary)"/> method.
+            </summary>
+            <value>The setting information.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IAudioMetadataEncoder.WriteMetadata(System.IO.Stream,AudioWorks.Common.AudioMetadata,AudioWorks.Common.SettingDictionary)">
+            <summary>
+            Writes the metadata to the stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="metadata">The metadata.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="T:AudioWorks.Extensibility.IPrerequisiteHandler">
+            <summary>
+            An extension that checks for prerequisites required by other extensions within the same assembly.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Extensibility.IPrerequisiteHandler.Handle">
+            <summary>
+            Performs one-time setup actions for this assembly, and indicates whether the prerequisites have been met.
+            </summary>
+            <returns><c>true</c> if this assembly's prerequisites have been met; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.ISampleProcessor">
+            <summary>
+            Accepts samples for processing.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Extensibility.ISampleProcessor.Submit(AudioWorks.Extensibility.SampleBuffer)">
+            <summary>
+            Submits samples for processing.
+            </summary>
+            <param name="samples">The samples.</param>
+        </member>
+        <member name="T:AudioWorks.Extensibility.PrerequisiteHandlerExportAttribute">
+            <summary>
+            Classes marked with this attribute will be loaded by AudioWorks.
+            </summary>
+            <remarks>
+            Classes marked with this attribute must implement <see cref="T:AudioWorks.Extensibility.IPrerequisiteHandler"/>.
+            </remarks>
+            <seealso cref="T:System.Composition.ExportAttribute"/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.PrerequisiteHandlerExportAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.PrerequisiteHandlerExportAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:AudioWorks.Extensibility.RuntimeChecker">
+            <summary>
+            A utility class for dealing with NuGet dependencies at runtime.
+            </summary>
+        </member>
+        <member name="M:AudioWorks.Extensibility.RuntimeChecker.GetShortFolderName">
+            <summary>
+            Returns the NuGet framework short folder name for the current runtime.
+            </summary>
+            <returns>The NuGet short folder name.</returns>
+        </member>
+        <member name="T:AudioWorks.Extensibility.SampleBuffer">
+            <summary>
+            Represents a block of audio samples.
+            </summary>
+        </member>
+        <member name="P:AudioWorks.Extensibility.SampleBuffer.Empty">
+            <summary>
+            Gets a <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> with 0 frames.
+            </summary>
+            <value>An empty <see cref="T:AudioWorks.Extensibility.SampleBuffer"/>.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.SampleBuffer.IsInterleaved">
+            <summary>
+            Gets a value indicating whether the samples are interleaved internally.
+            </summary>
+            <remarks>
+            Always returns <c>false</c> when <see cref="P:AudioWorks.Extensibility.SampleBuffer.Channels"/> equals 1.
+            </remarks>
+            <value><c>true</c> if the samples are interleaved; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.SampleBuffer.Channels">
+            <summary>
+            Gets the # of channels.
+            </summary>
+            <value>The # of channels.</value>
+        </member>
+        <member name="P:AudioWorks.Extensibility.SampleBuffer.Frames">
+            <summary>
+            Gets the frame count.
+            </summary>
+            <value>The frame count.</value>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.#ctor(System.ReadOnlySpan{System.Single},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> class using interleaved floating-point
+            samples.
+            </summary>
+            <param name="interleavedSamples">The interleaved samples.</param>
+            <param name="channels">The channels.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="interleavedSamples"/> is not a multiple of
+            channels.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="channels"/> is out of range.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.#ctor(System.ReadOnlySpan{System.Int32},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> class for a single channel, using integer
+            samples.
+            </summary>
+            <param name="monoSamples">The samples.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="bitsPerSample"/> is out of range.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.#ctor(System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{System.Int32},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> class for 2 channels, using integer samples.
+            </summary>
+            <param name="leftSamples">The left channel samples.</param>
+            <param name="rightSamples">The right channel samples.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="rightSamples"/> has a different length than
+            <paramref name="leftSamples"/>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="bitsPerSample"/> is out of range.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.#ctor(System.ReadOnlySpan{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> class using interleaved integer samples.
+            </summary>
+            <param name="interleavedSamples">The interleaved samples.</param>
+            <param name="channels">The channels.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="interleavedSamples"/> is not a multiple of
+            channels.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="channels"/> or
+            <paramref name="bitsPerSample"/> is out of range.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.#ctor(System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> class using interleaved integer samples, which
+            are packed on the byte boundary according to <paramref name="bitsPerSample"/>.
+            </summary>
+            <param name="interleavedSamples">The interleaved samples.</param>
+            <param name="channels">The # of channels.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="interleavedSamples"/> is not a valid length.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="channels"/> or
+            <paramref name="bitsPerSample"/> is out of range.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.CopyTo(System.Span{System.Single})">
+            <summary>
+            Copies the single channel of audio samples in normalized floating-point format.
+            </summary>
+            <remarks>
+            The samples are floating-point values normalized within -1.0 and 1.0.
+            </remarks>
+            <param name="monoDestination">The destination.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> has been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the Channels property does not equal 1.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.CopyTo(System.Span{System.Single},System.Span{System.Single})">
+            <summary>
+            Copies both channels of audio samples in normalized floating-point format.
+            </summary>
+            <remarks>
+            The samples are floating-point values normalized within -1.0 and 1.0.
+            </remarks>
+            <param name="leftDestination">The destination for the left channel.</param>
+            <param name="rightDestination">The destination for the right channel.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> has been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the Channels property does not equal 2.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.CopyTo(System.Span{System.Int32},System.Span{System.Int32},System.Int32)">
+            <summary>
+            Copies both channels of audio samples in integer format.
+            </summary>
+            <remarks>
+            The samples are floating-point values normalized within -1.0 and 1.0.
+            </remarks>
+            <param name="leftDestination">The destination for the left channel.</param>
+            <param name="rightDestination">The destination for the right channel.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> has been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the Channels property does not equal 2.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="bitsPerSample"/> is out of range.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.CopyToInterleaved(System.Span{System.Single})">
+            <summary>
+            Copies the interleaved channels of audio samples, in normalized floating-point format.
+            </summary>
+            <remarks>
+            The samples are floating-point values normalized within -1.0 and 1.0. Stereo samples are interleaved,
+            beginning with the left channel.
+            </remarks>
+            <param name="destination">The destination.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> has been disposed.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="destination"/> is not long enough to store the samples.
+            </exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.CopyToInterleaved(System.Span{System.Int32},System.Int32)">
+            <summary>
+            Copies the interleaved channels of audio samples, in integer format.
+            </summary>
+            <remarks>
+            The samples are signed and right-justified. Stereo samples are interleaved, beginning with the left
+            channel.
+            </remarks>
+            <param name="destination">The destination.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> has been disposed.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="destination"/> is not long enough to store the samples.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="bitsPerSample"/> is out of range.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.CopyToInterleaved(System.Span{System.Byte},System.Int32)">
+            <summary>
+            Copies the interleaved channels of audio samples, in packed integer format.
+            </summary>
+            <remarks>
+            The samples are stored as little-endian integers, aligned at the byte boundary. If
+            <paramref name="bitsPerSample"/> is 8 or less, they are unsigned. Otherwise, they are signed. Stereo
+            samples are interleaved, beginning with the left channel.
+            </remarks>
+            <param name="destination">The destination.</param>
+            <param name="bitsPerSample">The # of bits per sample.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:AudioWorks.Extensibility.SampleBuffer"/> has been disposed.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="destination"/> is not long enough to store the samples.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="bitsPerSample"/> is out of range.</exception>
+        </member>
+        <member name="M:AudioWorks.Extensibility.SampleBuffer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:AudioWorks.Extensibility.TempFileStream">
+            <summary>
+            Wraps a temporary file. Suitable as a <see cref="T:System.IO.MemoryStream"/> replacement for large data sets.
+            </summary>
+            <seealso cref="T:System.IO.Stream" />
+        </member>
+        <member name="M:AudioWorks.Extensibility.TempFileStream.Flush">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.TempFileStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.TempFileStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.TempFileStream.SetLength(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.TempFileStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.TempFileStream.CanRead">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.TempFileStream.CanSeek">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.TempFileStream.CanWrite">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.TempFileStream.Length">
+            <inheritdoc/>
+        </member>
+        <member name="P:AudioWorks.Extensibility.TempFileStream.Position">
+            <inheritdoc/>
+        </member>
+        <member name="M:AudioWorks.Extensibility.TempFileStream.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

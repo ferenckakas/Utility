@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MusicDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DiscogsSearchQueries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist" Type="nvarchar" MaxLength="200" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MusicDB.dbo.DiscogsSearchResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DiscogsSearchResults">
+          <Key>
+            <PropertyRef Name="UniqueId" />
+            <PropertyRef Name="QueryId" />
+          </Key>
+          <Property Name="UniqueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QueryId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Year" Type="smallint" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Style" Type="nvarchar" MaxLength="400" />
+          <Property Name="Format" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Uri" Type="nvarchar" MaxLength="500" />
+          <Property Name="CoverImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="Thumb" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_DiscogsSearchResults_DiscogsSearchQueries">
+          <End Role="DiscogsSearchQueries" Type="Self.DiscogsSearchQueries" Multiplicity="1" />
+          <End Role="DiscogsSearchResults" Type="Self.DiscogsSearchResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscogsSearchQueries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DiscogsSearchResults">
+              <PropertyRef Name="QueryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicDBModelStoreContainer">
+          <EntitySet Name="DiscogsSearchQueries" EntityType="Self.DiscogsSearchQueries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscogsSearchResults" EntityType="Self.DiscogsSearchResults" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DiscogsSearchResults_DiscogsSearchQueries" Association="Self.FK_DiscogsSearchResults_DiscogsSearchQueries">
+            <End Role="DiscogsSearchQueries" EntitySet="DiscogsSearchQueries" />
+            <End Role="DiscogsSearchResults" EntitySet="DiscogsSearchResults" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MusicDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DiscogsSearchQueries" EntityType="MusicDBModel.DiscogsSearchQuery" />
+          <EntitySet Name="DiscogsSearchResults" EntityType="MusicDBModel.DiscogsSearchResult" />
+          <AssociationSet Name="FK_DiscogsSearchResults_DiscogsSearchQueries" Association="MusicDBModel.FK_DiscogsSearchResults_DiscogsSearchQueries">
+            <End Role="DiscogsSearchQuery" EntitySet="DiscogsSearchQueries" />
+            <End Role="DiscogsSearchResult" EntitySet="DiscogsSearchResults" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DiscogsSearchQuery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DiscogsSearchResults" Relationship="MusicDBModel.FK_DiscogsSearchResults_DiscogsSearchQueries" FromRole="DiscogsSearchQuery" ToRole="DiscogsSearchResult" />
+        </EntityType>
+        <EntityType Name="DiscogsSearchResult">
+          <Key>
+            <PropertyRef Name="UniqueId" />
+            <PropertyRef Name="QueryId" />
+          </Key>
+          <Property Name="UniqueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QueryId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int16" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Genre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Style" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Format" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Uri" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CoverImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Thumb" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DiscogsSearchQuery" Relationship="MusicDBModel.FK_DiscogsSearchResults_DiscogsSearchQueries" FromRole="DiscogsSearchResult" ToRole="DiscogsSearchQuery" />
+        </EntityType>
+        <Association Name="FK_DiscogsSearchResults_DiscogsSearchQueries">
+          <End Type="MusicDBModel.DiscogsSearchQuery" Role="DiscogsSearchQuery" Multiplicity="1" />
+          <End Type="MusicDBModel.DiscogsSearchResult" Role="DiscogsSearchResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscogsSearchQuery">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DiscogsSearchResult">
+              <PropertyRef Name="QueryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicDBModelStoreContainer" CdmEntityContainer="MusicDBEntities">
+          <EntitySetMapping Name="DiscogsSearchQueries">
+            <EntityTypeMapping TypeName="MusicDBModel.DiscogsSearchQuery">
+              <MappingFragment StoreEntitySet="DiscogsSearchQueries">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscogsSearchResults">
+            <EntityTypeMapping TypeName="MusicDBModel.DiscogsSearchResult">
+              <MappingFragment StoreEntitySet="DiscogsSearchResults">
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="CoverImage" ColumnName="CoverImage" />
+                <ScalarProperty Name="Uri" ColumnName="Uri" />
+                <ScalarProperty Name="Format" ColumnName="Format" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QueryId" ColumnName="QueryId" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

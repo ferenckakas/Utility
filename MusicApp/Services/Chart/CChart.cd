@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WebApp3.Models.CChart">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAUAJgIAAAACAEAAAAQBAAQAIBKAAAADAAAAAABIAAY=</HashCode>
+      <FileName>Models\CChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.ITunesChart">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\iTunesChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.USChart">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAEAAAAAAAAAAABAAAAAAAAAAAAAIAAE=</HashCode>
+      <FileName>Models\USChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.UKSinglesChart">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAE=</HashCode>
+      <FileName>Models\UKSinglesChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.UKRockSingles">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\UKRockSingles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.UKDanceSingles">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\UKDanceSingles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HUMAHASZRadioTop40">
+    <Position X="2.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HUMAHASZRadioTop40.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HUMAHASZRadioTop40New">
+    <Position X="4.75" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HUMAHASZRadioTop40New.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HUMAHASZDanceTop40">
+    <Position X="7.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HUMAHASZDanceTop40.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HUMAHASZDanceTop40New">
+    <Position X="9.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HUMAHASZDanceTop40New.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HUVIVAChart">
+    <Position X="2.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HUVIVAChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HUVIVAClubChart">
+    <Position X="4.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HUVIVAClubChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.MyChart">
+    <Position X="6.75" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEgAAAAACAAAAAAAAABQAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\MyChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.HURecommendedChart">
+    <Position X="9" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\HURecommendedChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebApp3.Models.BestOfChart">
+    <Position X="11.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAACAAAAAAAIAAA=</HashCode>
+      <FileName>Models\BestOfChart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

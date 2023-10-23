@@ -1,0 +1,104 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicLibraryUtility", "ChartParser\MusicLibraryUtility.csproj", "{4B27194E-A54F-45C4-B830-22EBB639A03B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E98B098-5D7D-486E-92A2-B7FF10AFE2ED} = {0E98B098-5D7D-486E-92A2-B7FF10AFE2ED}
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2} = {226F1A2E-40B5-4C0A-96D3-8050729E49B2}
+		{6B847657-B502-4C8C-8F65-637434F60473} = {6B847657-B502-4C8C-8F65-637434F60473}
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6} = {8AAED1B1-D636-48C8-B496-4426B3A9F5F6}
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D} = {9309C005-3CF0-4EAF-BE25-4DC48240DD9D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "..\MusicApp\Services\Services.csproj", "{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\MusicApp\Common\Common.csproj", "{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "..\MusicApp\Helper\Helper.csproj", "{6B847657-B502-4C8C-8F65-637434F60473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyWebAPI", "..\SpotifyWebAPI\SpotifyWebAPI\SpotifyWebAPI.csproj", "{BC74E8E2-0A73-461F-90CC-274736BC010E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\MusicApp\Entities\Entities.csproj", "{226F1A2E-40B5-4C0A-96D3-8050729E49B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "..\MusicApp\Business\Business.csproj", "{0E98B098-5D7D-486E-92A2-B7FF10AFE2ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicLibraryUtilityWPF", "..\MusicLibraryUtilityWPF\MusicLibraryUtilityWPF.csproj", "{9B48495A-5217-4926-A9FC-BD577142DBEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B27194E-A54F-45C4-B830-22EBB639A03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B27194E-A54F-45C4-B830-22EBB639A03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B27194E-A54F-45C4-B830-22EBB639A03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B27194E-A54F-45C4-B830-22EBB639A03B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9309C005-3CF0-4EAF-BE25-4DC48240DD9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAED1B1-D636-48C8-B496-4426B3A9F5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B847657-B502-4C8C-8F65-637434F60473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC74E8E2-0A73-461F-90CC-274736BC010E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226F1A2E-40B5-4C0A-96D3-8050729E49B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E98B098-5D7D-486E-92A2-B7FF10AFE2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E98B098-5D7D-486E-92A2-B7FF10AFE2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E98B098-5D7D-486E-92A2-B7FF10AFE2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E98B098-5D7D-486E-92A2-B7FF10AFE2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B48495A-5217-4926-A9FC-BD577142DBEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B48495A-5217-4926-A9FC-BD577142DBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B48495A-5217-4926-A9FC-BD577142DBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B48495A-5217-4926-A9FC-BD577142DBEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {421EE16F-E29D-407E-BE80-09225AA113C7}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ferenckakas.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\MusicApp\\Services\\Services.csproj
+		SccProjectName1 = ../MusicApp/Services
+		SccLocalPath1 = ..\\MusicApp\\Services
+		SccProjectUniqueName2 = ..\\MusicApp\\Common\\Common.csproj
+		SccProjectName2 = ../MusicApp/Common
+		SccLocalPath2 = ..\\MusicApp\\Common
+		SccProjectUniqueName3 = ..\\MusicApp\\Helper\\Helper.csproj
+		SccProjectName3 = ../MusicApp/Helper
+		SccLocalPath3 = ..\\MusicApp\\Helper
+		SccProjectUniqueName4 = ..\\SpotifyWebAPI\\SpotifyWebAPI\\SpotifyWebAPI.csproj
+		SccProjectName4 = ../SpotifyWebAPI/SpotifyWebAPI
+		SccLocalPath4 = ..\\SpotifyWebAPI\\SpotifyWebAPI
+		SccProjectUniqueName5 = ..\\MusicApp\\Entities\\Entities.csproj
+		SccProjectName5 = ../MusicApp/Entities
+		SccLocalPath5 = ..\\MusicApp\\Entities
+		SccProjectUniqueName6 = ChartParser\\MusicLibraryUtility.csproj
+		SccProjectName6 = ChartParser
+		SccLocalPath6 = ChartParser
+		SccProjectUniqueName7 = ..\\MusicApp\\Business\\Business.csproj
+		SccProjectName7 = ../MusicApp/Business
+		SccLocalPath7 = ..\\MusicApp\\Business
+		SccProjectUniqueName8 = ..\\MusicLibraryUtilityWPF\\MusicLibraryUtilityWPF.csproj
+		SccProjectName8 = ../MusicLibraryUtilityWPF
+		SccLocalPath8 = ..\\MusicLibraryUtilityWPF
+	EndGlobalSection
+EndGlobal

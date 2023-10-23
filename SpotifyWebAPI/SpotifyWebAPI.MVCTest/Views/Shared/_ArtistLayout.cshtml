@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">            
+            @Html.Partial("~/Views/Shared/_MenuPartialPage.cshtml");
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("GetArtist", "GetArtistAsync", "Artist")</li>
+                <li>@Html.ActionLink("GetArtists", "GetArtistsAsync", "Artist")</li>
+                <li>@Html.ActionLink("GetArtistAlbums", "GetArtistAlbumsAsync", "Artist")</li>
+                <li>@Html.ActionLink("GetRelatedArtists", "GetRelatedArtistsAsync", "Artist")</li>
+                <li>@Html.ActionLink("GetTopTracks", "GetTopTracksAsync", "Artist")</li>
+                <li>@Html.ActionLink("Search", "SearchAsync", "Artist")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SpotifyWebAPI by tinyioda</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

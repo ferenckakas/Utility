@@ -1,0 +1,45 @@
+﻿@model SpotifyWebAPI.Artist
+
+@{
+    ViewBag.Title = "GetArtist";
+    Layout = "~/Views/Shared/_ArtistLayout.cshtml";
+}
+
+<h2>GetArtist</h2>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HREF)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HREF)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Popularity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Popularity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Uri)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Uri)
+        </dd>
+    </dl>
+</div>

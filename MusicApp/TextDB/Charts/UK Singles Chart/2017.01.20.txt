@@ -1,0 +1,40 @@
+1	NON	Ed Sheeran	Shape Of You
+2	NON	Ed Sheeran	Castle On The Hill
+3	NON	Rag'n'Bone Man	Human
+4	UP	Jax Jones	You Don't Know Me (feat. RAYE)
+5	DOWN	Clean Bandit & Anne-Marie	Rockabye (feat. Sean Paul)
+6	DOWN	Little Mix	Touch
+7	UP	Starley	Call On Me (Ryan Riback Remix)
+8	DOWN	JP Cooper	September Song
+9	DOWN	Zara Larsson	I Would Like
+10	NEW	The Chainsmokers	Paris
+11	DOWN	Louis Tomlinson & Steve Aoki	Just Hold On
+12	NON	The Weeknd	I Feel It Coming (feat. Daft Punk)
+13	DOWN	NEIKED	Sensual (feat. Dyo)
+14	DOWN	James Arthur	Say You Won't Let Go
+15	DOWN	The Weeknd	Starboy (feat. Daft Punk)
+16	UP	Machine Gun Kelly x Camila Cabello	Bad Things
+17	NON	ZAYN & Taylor Swift	I Don't Wanna Live Forever
+18	NON	Maroon 5	Don't Wanna Know (feat. Kendrick Lamar)
+19	DOWN	Little Mix	Shout Out To My Ex
+20	DOWN	Bruno Mars	24K Magic
+21	UP	Sean Paul	No Lie (feat. Dua Lipa)
+22	DOWN	The Chainsmokers	Closer (feat. Halsey)
+23	DOWN	John Legend	Love Me Now
+24	DOWN	Tom Zanetti	You Want Me (feat. Sadie Ama)
+25	DOWN	Drake	Fake Love
+26	DOWN	Jonas Blue	By Your Side (feat. RAYE)
+27	UP	Robin Schulz & David Guetta	Shed A Light (feat. Cheat Codes)
+28	DOWN	Rae Sremmurd	Black Beatles (feat. Gucci Mane)
+29	UP	The Vamps & Matoma	All Night
+30	DOWN	Nevada	The Mack (feat. Mark Morrison & Fetty Wap)
+31	DOWN	Charli XCX	After The Afterparty (feat. Lil Yachty)
+32	NEW	Sage the Gemini	Now and Later
+33	DOWN	Hailee Steinfeld & Grey	Starving (feat. Zedd)
+34	RE	The xx	On Hold
+35	DOWN	Ariana Grande	Side To Side (feat. Nicki Minaj)
+36	DOWN	Louisa Johnson	So Good
+37	NEW	Migos & Lil Uzi Vert	Bad And Boujee
+38	DOWN	Drake	One Dance (feat. WizKid & Kyla)
+39	DOWN	Sia	The Greatest (feat. Kendrick Lamar)
+40	DOWN	Shawn Mendes	Mercy

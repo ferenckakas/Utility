@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b157cb5653d545d6a81f503678f1ea80" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicModel.Album" Width="1.5" PointX="3.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.AlbumSong" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Artist" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Country" Width="1.5" PointX="13.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Lyric" Width="1.5" PointX="11.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Playlist" Width="1.5" PointX="3.125" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.SearchResult" Width="1.5" PointX="11.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Session" Width="1.5" PointX="11.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Song" Width="1.75" PointX="9.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.User" Width="1.5" PointX="3.125" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.UserSong" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.Video" Width="1.5" PointX="11.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.PlaylistSong" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="MusicModel.FK_Albums_Artists" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_AlbumSongs_Albums" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_AlbumSongs_Songs" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_Videos_Lyrics" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_Playlists_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_PlaylistSongs_Playlists" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_SearchResults_Videos" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_PlaylistSongs_Songs" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_Songs_Videos" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_UserSongs_Songs" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicModel.FK_UserSongs_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MusicModel.SongArtist" Width="1.5" PointX="9.25" PointY="0.5" />
+        <AssociationConnector Association="MusicModel.FK_SongArtists_Artists" />
+        <AssociationConnector Association="MusicModel.FK_SongArtists_Songs" />
+        <EntityTypeShape EntityType="MusicModel.ChartItem" Width="1.5" PointX="0.5" PointY="8.25" />
+        <EntityTypeShape EntityType="MusicModel.ChartReleas" Width="1.625" PointX="0.5" PointY="5.625" />
+        <EntityTypeShape EntityType="MusicModel.Chart" Width="1.5" PointX="0.5" PointY="3.625" />
+        <AssociationConnector Association="MusicModel.FK_ChartItems_ChartReleases" />
+        <AssociationConnector Association="MusicModel.FK_ChartReleases_Charts" />
+        <EntityTypeShape EntityType="MusicModel.ChartReleaseSong" Width="1.75" PointX="6" PointY="8.5" />
+        <AssociationConnector Association="MusicModel.FK_ChartReleaseSongs_Songs" />
+        <AssociationConnector Association="MusicModel.FK_Songs_Artists" ManuallyRouted="true" >
+          <ConnectorPoint PointX="2" PointY="0.84386298999451714" />
+          <ConnectorPoint PointX="3.0625" PointY="0.84386298999451714" />
+          <ConnectorPoint PointX="3.0625" PointY="0.844869791666667" />
+          <ConnectorPoint PointX="8.4895833333333339" PointY="0.844869791666667" />
+          <ConnectorPoint PointX="8.4895833333333339" PointY="3.2316467756304834" />
+          <ConnectorPoint PointX="9.25" PointY="3.2316467756304834" />
+        </AssociationConnector>
+        <AssociationConnector Association="MusicModel.FK_ChartReleaseSongs_ChartReleases" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

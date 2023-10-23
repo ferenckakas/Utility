@@ -1,0 +1,1225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MusicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ArtistID" Type="int" Nullable="false" />
+          <Property Name="Released" Type="date" />
+          <Property Name="WikiURL" Type="varchar" MaxLength="256" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="AlbumSongs">
+          <Key>
+            <PropertyRef Name="AlbumID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="AlbumID" Type="int" Nullable="false" />
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="Number" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="WikiURL" Type="varchar" MaxLength="256" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="256" />
+          <Property Name="ConnectedID" Type="int" />
+          <Property Name="RefreshInterval" Type="int" />
+          <Property Name="Refreshed" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ChartItems">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChartReleaseID" Type="int" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChartReleases">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChartID" Type="int" Nullable="false" />
+          <Property Name="Released" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChartReleaseSongs">
+          <Key>
+            <PropertyRef Name="ChartReleaseID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="ChartReleaseID" Type="int" Nullable="false" />
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="Number" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Charts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="Population" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lyrics">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Playlists">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsFolder" Type="bit" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="PlaylistSongs">
+          <Key>
+            <PropertyRef Name="PlaylistID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="PlaylistID" Type="int" Nullable="false" />
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="Number" Type="smallint" />
+        </EntityType>
+        <EntityType Name="SearchResults">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Artist" Type="nvarchar" MaxLength="256" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="VideoImageURL" Type="nvarchar" MaxLength="256" />
+          <Property Name="Lyrics" Type="ntext" />
+          <Property Name="VideoID" Type="char" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SongArtists">
+          <Key>
+            <PropertyRef Name="SongID" />
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="ArtistID" Type="int" Nullable="false" />
+          <Property Name="IsFeaturing" Type="bit" />
+          <Property Name="Number" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hash" Type="nvarchar" MaxLength="256" />
+          <Property Name="ArtistID" Type="int" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="128" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Version" Type="nvarchar" MaxLength="64" />
+          <Property Name="Released" Type="date" />
+          <Property Name="VideoID" Type="char" MaxLength="11" />
+          <Property Name="SpotifyID" Type="varchar" MaxLength="50" />
+          <Property Name="WikiURL" Type="varchar" MaxLength="256" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="256" />
+          <Property Name="ConnectedID" Type="int" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserSongs">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="Listened" Type="bit" />
+          <Property Name="Rating" Type="tinyint" />
+          <Property Name="ITunesID" Type="int" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="VideoImageURL" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LyricID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Albums_Artists">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumSongs_Albums">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+          <End Role="AlbumSongs" Type="Self.AlbumSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AlbumSongs">
+              <PropertyRef Name="AlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumSongs_Songs">
+          <End Role="Songs" Type="Self.Songs" Multiplicity="1" />
+          <End Role="AlbumSongs" Type="Self.AlbumSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AlbumSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChartItems_ChartReleases">
+          <End Role="ChartReleases" Type="Self.ChartReleases" Multiplicity="1" />
+          <End Role="ChartItems" Type="Self.ChartItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChartReleases">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartItems">
+              <PropertyRef Name="ChartReleaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChartReleases_Charts">
+          <End Role="Charts" Type="Self.Charts" Multiplicity="1" />
+          <End Role="ChartReleases" Type="Self.ChartReleases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartReleases">
+              <PropertyRef Name="ChartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChartReleaseSongs_ChartReleases">
+          <End Role="ChartReleases" Type="Self.ChartReleases" Multiplicity="1" />
+          <End Role="ChartReleaseSongs" Type="Self.ChartReleaseSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChartReleases">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartReleaseSongs">
+              <PropertyRef Name="ChartReleaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChartReleaseSongs_Songs">
+          <End Role="Songs" Type="Self.Songs" Multiplicity="1" />
+          <End Role="ChartReleaseSongs" Type="Self.ChartReleaseSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartReleaseSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlists_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Playlists">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSongs_Playlists">
+          <End Role="Playlists" Type="Self.Playlists" Multiplicity="1" />
+          <End Role="PlaylistSongs" Type="Self.PlaylistSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Playlists">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlaylistSongs">
+              <PropertyRef Name="PlaylistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSongs_Songs">
+          <End Role="Songs" Type="Self.Songs" Multiplicity="1" />
+          <End Role="PlaylistSongs" Type="Self.PlaylistSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlaylistSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SearchResults_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="0..1" />
+          <End Role="SearchResults" Type="Self.SearchResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SearchResults">
+              <PropertyRef Name="VideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SongArtists_Artists">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="SongArtists" Type="Self.SongArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SongArtists">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SongArtists_Songs">
+          <End Role="Songs" Type="Self.Songs" Multiplicity="1" />
+          <End Role="SongArtists" Type="Self.SongArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SongArtists">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Artists">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="0..1" />
+          <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="0..1" />
+          <End Role="Songs" Type="Self.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="VideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSongs_Songs">
+          <End Role="Songs" Type="Self.Songs" Multiplicity="1" />
+          <End Role="UserSongs" Type="Self.UserSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSongs_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSongs" Type="Self.UserSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserSongs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_Lyrics">
+          <End Role="Lyrics" Type="Self.Lyrics" Multiplicity="0..1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lyrics">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="LyricID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicModelStoreContainer">
+          <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlbumSongs" EntityType="Self.AlbumSongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChartItems" EntityType="Self.ChartItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChartReleases" EntityType="Self.ChartReleases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChartReleaseSongs" EntityType="Self.ChartReleaseSongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Charts" EntityType="Self.Charts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lyrics" EntityType="Self.Lyrics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Playlists" EntityType="Self.Playlists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaylistSongs" EntityType="Self.PlaylistSongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SearchResults" EntityType="Self.SearchResults" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SongArtists" EntityType="Self.SongArtists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSongs" EntityType="Self.UserSongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Albums_Artists" Association="Self.FK_Albums_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumSongs_Albums" Association="Self.FK_AlbumSongs_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="AlbumSongs" EntitySet="AlbumSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumSongs_Songs" Association="Self.FK_AlbumSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="AlbumSongs" EntitySet="AlbumSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChartItems_ChartReleases" Association="Self.FK_ChartItems_ChartReleases">
+            <End Role="ChartReleases" EntitySet="ChartReleases" />
+            <End Role="ChartItems" EntitySet="ChartItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChartReleases_Charts" Association="Self.FK_ChartReleases_Charts">
+            <End Role="Charts" EntitySet="Charts" />
+            <End Role="ChartReleases" EntitySet="ChartReleases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChartReleaseSongs_ChartReleases" Association="Self.FK_ChartReleaseSongs_ChartReleases">
+            <End Role="ChartReleases" EntitySet="ChartReleases" />
+            <End Role="ChartReleaseSongs" EntitySet="ChartReleaseSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChartReleaseSongs_Songs" Association="Self.FK_ChartReleaseSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="ChartReleaseSongs" EntitySet="ChartReleaseSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlists_Users" Association="Self.FK_Playlists_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Playlists" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSongs_Playlists" Association="Self.FK_PlaylistSongs_Playlists">
+            <End Role="Playlists" EntitySet="Playlists" />
+            <End Role="PlaylistSongs" EntitySet="PlaylistSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSongs_Songs" Association="Self.FK_PlaylistSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="PlaylistSongs" EntitySet="PlaylistSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SearchResults_Videos" Association="Self.FK_SearchResults_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="SearchResults" EntitySet="SearchResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SongArtists_Artists" Association="Self.FK_SongArtists_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="SongArtists" EntitySet="SongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SongArtists_Songs" Association="Self.FK_SongArtists_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="SongArtists" EntitySet="SongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Artists" Association="Self.FK_Songs_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Videos" Association="Self.FK_Songs_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSongs_Songs" Association="Self.FK_UserSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="UserSongs" EntitySet="UserSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSongs_Users" Association="Self.FK_UserSongs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSongs" EntitySet="UserSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_Lyrics" Association="Self.FK_Videos_Lyrics">
+            <End Role="Lyrics" EntitySet="Lyrics" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ArtistID" Type="Int32" Nullable="false" />
+          <Property Name="Released" Type="DateTime" Precision="0" />
+          <Property Name="WikiURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK_Albums_Artists" FromRole="Albums" ToRole="Artists" />
+          <NavigationProperty Name="AlbumSongs" Relationship="Self.FK_AlbumSongs_Albums" FromRole="Albums" ToRole="AlbumSongs" />
+        </EntityType>
+        <EntityType Name="AlbumSong">
+          <Key>
+            <PropertyRef Name="AlbumID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="AlbumID" Type="Int32" Nullable="false" />
+          <Property Name="SongID" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Byte" />
+          <NavigationProperty Name="Album" Relationship="Self.FK_AlbumSongs_Albums" FromRole="AlbumSongs" ToRole="Albums" />
+          <NavigationProperty Name="Song" Relationship="Self.FK_AlbumSongs_Songs" FromRole="AlbumSongs" ToRole="Songs" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WikiURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ConnectedID" Type="Int32" />
+          <Property Name="RefreshInterval" Type="Int32" />
+          <Property Name="Refreshed" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_Albums_Artists" FromRole="Artists" ToRole="Albums" />
+          <NavigationProperty Name="SongArtists" Relationship="MusicModel.FK_SongArtists_Artists" FromRole="Artist" ToRole="SongArtist" />
+          <NavigationProperty Name="Songs" Relationship="MusicModel.FK_Songs_Artists" FromRole="Artist" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Population" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lyric">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Lyrics" FromRole="Lyrics" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Playlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IsFolder" Type="Boolean" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Playlists_Users" FromRole="Playlists" ToRole="Users" />
+          <NavigationProperty Name="PlaylistSongs" Relationship="Self.FK_PlaylistSongs_Playlists" FromRole="Playlists" ToRole="PlaylistSongs" />
+        </EntityType>
+        <EntityType Name="SearchResult">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Artist" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="VideoImageURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Lyrics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoID" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_SearchResults_Videos" FromRole="SearchResults" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hash" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistID" Type="Int32" />
+          <Property Name="ArtistName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Version" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Released" Type="DateTime" Precision="0" />
+          <Property Name="VideoID" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="SpotifyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WikiURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ConnectedID" Type="Int32" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlbumSongs" Relationship="Self.FK_AlbumSongs_Songs" FromRole="Songs" ToRole="AlbumSongs" />
+          <NavigationProperty Name="PlaylistSongs" Relationship="Self.FK_PlaylistSongs_Songs" FromRole="Songs" ToRole="PlaylistSongs" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_Songs_Videos" FromRole="Songs" ToRole="Videos" />
+          <NavigationProperty Name="UserSongs" Relationship="Self.FK_UserSongs_Songs" FromRole="Songs" ToRole="UserSongs" />
+          <NavigationProperty Name="SongArtists" Relationship="MusicModel.FK_SongArtists_Songs" FromRole="Song" ToRole="SongArtist" />
+          <NavigationProperty Name="ChartReleaseSongs" Relationship="MusicModel.FK_ChartReleaseSongs_Songs" FromRole="Song" ToRole="ChartReleaseSong" />
+          <NavigationProperty Name="Artist" Relationship="MusicModel.FK_Songs_Artists" FromRole="Song" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlists_Users" FromRole="Users" ToRole="Playlists" />
+          <NavigationProperty Name="UserSongs" Relationship="Self.FK_UserSongs_Users" FromRole="Users" ToRole="UserSongs" />
+        </EntityType>
+        <EntityType Name="UserSong">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="SongID" Type="Int32" Nullable="false" />
+          <Property Name="Listened" Type="Boolean" />
+          <Property Name="Rating" Type="Byte" />
+          <Property Name="ITunesID" Type="Int32" />
+          <NavigationProperty Name="Song" Relationship="Self.FK_UserSongs_Songs" FromRole="UserSongs" ToRole="Songs" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserSongs_Users" FromRole="UserSongs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="VideoImageURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LyricID" Type="Int32" />
+          <NavigationProperty Name="Lyric" Relationship="Self.FK_Videos_Lyrics" FromRole="Videos" ToRole="Lyrics" />
+          <NavigationProperty Name="SearchResults" Relationship="Self.FK_SearchResults_Videos" FromRole="Videos" ToRole="SearchResults" />
+          <NavigationProperty Name="Songs" Relationship="Self.FK_Songs_Videos" FromRole="Videos" ToRole="Songs" />
+        </EntityType>
+        <EntityType Name="PlaylistSong">
+          <Key>
+            <PropertyRef Name="PlaylistID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="PlaylistID" Type="Int32" Nullable="false" />
+          <Property Name="SongID" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int16" />
+          <NavigationProperty Name="Playlist" Relationship="Self.FK_PlaylistSongs_Playlists" FromRole="PlaylistSongs" ToRole="Playlists" />
+          <NavigationProperty Name="Song" Relationship="Self.FK_PlaylistSongs_Songs" FromRole="PlaylistSongs" ToRole="Songs" />
+        </EntityType>
+        <Association Name="FK_Albums_Artists">
+          <End Role="Artists" Type="Self.Artist" Multiplicity="1" />
+          <End Role="Albums" Type="Self.Album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumSongs_Albums">
+          <End Role="Albums" Type="Self.Album" Multiplicity="1" />
+          <End Role="AlbumSongs" Type="Self.AlbumSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AlbumSongs">
+              <PropertyRef Name="AlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumSongs_Songs">
+          <End Role="Songs" Type="Self.Song" Multiplicity="1" />
+          <End Role="AlbumSongs" Type="Self.AlbumSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AlbumSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_Lyrics">
+          <End Role="Lyrics" Type="Self.Lyric" Multiplicity="0..1" />
+          <End Role="Videos" Type="Self.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lyrics">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="LyricID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlists_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Playlists" Type="Self.Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Playlists">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSongs_Playlists">
+          <End Role="Playlists" Type="Self.Playlist" Multiplicity="1" />
+          <End Role="PlaylistSongs" Type="Self.PlaylistSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Playlists">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlaylistSongs">
+              <PropertyRef Name="PlaylistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SearchResults_Videos">
+          <End Role="Videos" Type="Self.Video" Multiplicity="0..1" />
+          <End Role="SearchResults" Type="Self.SearchResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SearchResults">
+              <PropertyRef Name="VideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSongs_Songs">
+          <End Role="Songs" Type="Self.Song" Multiplicity="1" />
+          <End Role="PlaylistSongs" Type="Self.PlaylistSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlaylistSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Videos">
+          <End Role="Videos" Type="Self.Video" Multiplicity="0..1" />
+          <End Role="Songs" Type="Self.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="VideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSongs_Songs">
+          <End Role="Songs" Type="Self.Song" Multiplicity="1" />
+          <End Role="UserSongs" Type="Self.UserSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Songs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserSongs">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSongs_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UserSongs" Type="Self.UserSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserSongs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Albums" EntityType="Self.Album" />
+          <EntitySet Name="AlbumSongs" EntityType="Self.AlbumSong" />
+          <EntitySet Name="Artists" EntityType="Self.Artist" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Lyrics" EntityType="Self.Lyric" />
+          <EntitySet Name="Playlists" EntityType="Self.Playlist" />
+          <EntitySet Name="SearchResults" EntityType="Self.SearchResult" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <EntitySet Name="Songs" EntityType="Self.Song" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserSongs" EntityType="Self.UserSong" />
+          <EntitySet Name="Videos" EntityType="Self.Video" />
+          <EntitySet Name="PlaylistSongs" EntityType="Self.PlaylistSong" />
+          <AssociationSet Name="FK_Albums_Artists" Association="Self.FK_Albums_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumSongs_Albums" Association="Self.FK_AlbumSongs_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="AlbumSongs" EntitySet="AlbumSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumSongs_Songs" Association="Self.FK_AlbumSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="AlbumSongs" EntitySet="AlbumSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_Lyrics" Association="Self.FK_Videos_Lyrics">
+            <End Role="Lyrics" EntitySet="Lyrics" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlists_Users" Association="Self.FK_Playlists_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Playlists" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSongs_Playlists" Association="Self.FK_PlaylistSongs_Playlists">
+            <End Role="Playlists" EntitySet="Playlists" />
+            <End Role="PlaylistSongs" EntitySet="PlaylistSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SearchResults_Videos" Association="Self.FK_SearchResults_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="SearchResults" EntitySet="SearchResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSongs_Songs" Association="Self.FK_PlaylistSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="PlaylistSongs" EntitySet="PlaylistSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Videos" Association="Self.FK_Songs_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSongs_Songs" Association="Self.FK_UserSongs_Songs">
+            <End Role="Songs" EntitySet="Songs" />
+            <End Role="UserSongs" EntitySet="UserSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSongs_Users" Association="Self.FK_UserSongs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSongs" EntitySet="UserSongs" />
+          </AssociationSet>
+          <EntitySet Name="SongArtists" EntityType="MusicModel.SongArtist" />
+          <AssociationSet Name="FK_SongArtists_Artists" Association="MusicModel.FK_SongArtists_Artists">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="SongArtist" EntitySet="SongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SongArtists_Songs" Association="MusicModel.FK_SongArtists_Songs">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="SongArtist" EntitySet="SongArtists" />
+          </AssociationSet>
+          <EntitySet Name="ChartItems" EntityType="MusicModel.ChartItem" />
+          <EntitySet Name="ChartReleases" EntityType="MusicModel.ChartReleas" />
+          <EntitySet Name="Charts" EntityType="MusicModel.Chart" />
+          <AssociationSet Name="FK_ChartItems_ChartReleases" Association="MusicModel.FK_ChartItems_ChartReleases">
+            <End Role="ChartReleas" EntitySet="ChartReleases" />
+            <End Role="ChartItem" EntitySet="ChartItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChartReleases_Charts" Association="MusicModel.FK_ChartReleases_Charts">
+            <End Role="Chart" EntitySet="Charts" />
+            <End Role="ChartReleas" EntitySet="ChartReleases" />
+          </AssociationSet>
+          <EntitySet Name="ChartReleaseSongs" EntityType="MusicModel.ChartReleaseSong" />
+          <AssociationSet Name="FK_ChartReleaseSongs_Songs" Association="MusicModel.FK_ChartReleaseSongs_Songs">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="ChartReleaseSong" EntitySet="ChartReleaseSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Artists" Association="MusicModel.FK_Songs_Artists">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Song" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChartReleaseSongs_ChartReleases" Association="MusicModel.FK_ChartReleaseSongs_ChartReleases">
+            <End Role="ChartReleas" EntitySet="ChartReleases" />
+            <End Role="ChartReleaseSong" EntitySet="ChartReleaseSongs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SongArtist">
+          <Key>
+            <PropertyRef Name="SongID" />
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="SongID" Type="Int32" Nullable="false" />
+          <Property Name="ArtistID" Type="Int32" Nullable="false" />
+          <Property Name="IsFeaturing" Type="Boolean" />
+          <Property Name="Number" Type="Byte" />
+          <NavigationProperty Name="Artist" Relationship="MusicModel.FK_SongArtists_Artists" FromRole="SongArtist" ToRole="Artist" />
+          <NavigationProperty Name="Song" Relationship="MusicModel.FK_SongArtists_Songs" FromRole="SongArtist" ToRole="Song" />
+        </EntityType>
+        <Association Name="FK_SongArtists_Artists">
+          <End Type="MusicModel.Artist" Role="Artist" Multiplicity="1" />
+          <End Type="MusicModel.SongArtist" Role="SongArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SongArtist">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SongArtists_Songs">
+          <End Type="MusicModel.Song" Role="Song" Multiplicity="1" />
+          <End Type="MusicModel.SongArtist" Role="SongArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SongArtist">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChartItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChartReleaseID" Type="Int32" Nullable="false" />
+          <Property Name="ArtistName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChartReleas" Relationship="MusicModel.FK_ChartItems_ChartReleases" FromRole="ChartItem" ToRole="ChartReleas" />
+        </EntityType>
+        <EntityType Name="ChartReleas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChartID" Type="Int32" Nullable="false" />
+          <Property Name="Released" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ChartItems" Relationship="MusicModel.FK_ChartItems_ChartReleases" FromRole="ChartReleas" ToRole="ChartItem" />
+          <NavigationProperty Name="Chart" Relationship="MusicModel.FK_ChartReleases_Charts" FromRole="ChartReleas" ToRole="Chart" />
+          <NavigationProperty Name="ChartReleaseSongs" Relationship="MusicModel.FK_ChartReleaseSongs_ChartReleases" FromRole="ChartReleas" ToRole="ChartReleaseSong" />
+        </EntityType>
+        <EntityType Name="Chart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChartReleases" Relationship="MusicModel.FK_ChartReleases_Charts" FromRole="Chart" ToRole="ChartReleas" />
+        </EntityType>
+        <Association Name="FK_ChartItems_ChartReleases">
+          <End Type="MusicModel.ChartReleas" Role="ChartReleas" Multiplicity="1" />
+          <End Type="MusicModel.ChartItem" Role="ChartItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChartReleas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartItem">
+              <PropertyRef Name="ChartReleaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChartReleases_Charts">
+          <End Type="MusicModel.Chart" Role="Chart" Multiplicity="1" />
+          <End Type="MusicModel.ChartReleas" Role="ChartReleas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chart">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartReleas">
+              <PropertyRef Name="ChartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChartReleaseSong">
+          <Key>
+            <PropertyRef Name="ChartReleaseID" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="ChartReleaseID" Type="Int32" Nullable="false" />
+          <Property Name="SongID" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Song" Relationship="MusicModel.FK_ChartReleaseSongs_Songs" FromRole="ChartReleaseSong" ToRole="Song" />
+          <NavigationProperty Name="ChartReleas" Relationship="MusicModel.FK_ChartReleaseSongs_ChartReleases" FromRole="ChartReleaseSong" ToRole="ChartReleas" />
+        </EntityType>
+        <Association Name="FK_ChartReleaseSongs_Songs">
+          <End Type="MusicModel.Song" Role="Song" Multiplicity="1" />
+          <End Type="MusicModel.ChartReleaseSong" Role="ChartReleaseSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartReleaseSong">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Artists">
+          <End Type="MusicModel.Artist" Role="Artist" Multiplicity="0..1" />
+          <End Type="MusicModel.Song" Role="Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Song">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChartReleaseSongs_ChartReleases">
+          <End Type="MusicModel.ChartReleas" Role="ChartReleas" Multiplicity="1" />
+          <End Type="MusicModel.ChartReleaseSong" Role="ChartReleaseSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChartReleas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChartReleaseSong">
+              <PropertyRef Name="ChartReleaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicModelStoreContainer" CdmEntityContainer="MusicEntities">
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="MusicModel.Album">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="Released" ColumnName="Released" />
+                <ScalarProperty Name="WikiURL" ColumnName="WikiURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlbumSongs">
+            <EntityTypeMapping TypeName="MusicModel.AlbumSong">
+              <MappingFragment StoreEntitySet="AlbumSongs">
+                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="MusicModel.Artist">
+              <MappingFragment StoreEntitySet="Artists">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WikiURL" ColumnName="WikiURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="ConnectedID" ColumnName="ConnectedID" />
+                <ScalarProperty Name="RefreshInterval" ColumnName="RefreshInterval" />
+                <ScalarProperty Name="Refreshed" ColumnName="Refreshed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="MusicModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lyrics">
+            <EntityTypeMapping TypeName="MusicModel.Lyric">
+              <MappingFragment StoreEntitySet="Lyrics">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Playlists">
+            <EntityTypeMapping TypeName="MusicModel.Playlist">
+              <MappingFragment StoreEntitySet="Playlists">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsFolder" ColumnName="IsFolder" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SearchResults">
+            <EntityTypeMapping TypeName="MusicModel.SearchResult">
+              <MappingFragment StoreEntitySet="SearchResults">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="VideoImageURL" ColumnName="VideoImageURL" />
+                <ScalarProperty Name="Lyrics" ColumnName="Lyrics" />
+                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="MusicModel.Session">
+              <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="MusicModel.Song">
+              <MappingFragment StoreEntitySet="Songs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Released" ColumnName="Released" />
+                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+                <ScalarProperty Name="SpotifyID" ColumnName="SpotifyID" />
+                <ScalarProperty Name="WikiURL" ColumnName="WikiURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="ConnectedID" ColumnName="ConnectedID" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MusicModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSongs">
+            <EntityTypeMapping TypeName="MusicModel.UserSong">
+              <MappingFragment StoreEntitySet="UserSongs">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="Listened" ColumnName="Listened" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ITunesID" ColumnName="ITunesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="MusicModel.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VideoImageURL" ColumnName="VideoImageURL" />
+                <ScalarProperty Name="LyricID" ColumnName="LyricID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaylistSongs">
+            <EntityTypeMapping TypeName="MusicModel.PlaylistSong">
+              <MappingFragment StoreEntitySet="PlaylistSongs">
+                <ScalarProperty Name="PlaylistID" ColumnName="PlaylistID" />
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SongArtists">
+            <EntityTypeMapping TypeName="MusicModel.SongArtist">
+              <MappingFragment StoreEntitySet="SongArtists">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="IsFeaturing" ColumnName="IsFeaturing" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChartItems">
+            <EntityTypeMapping TypeName="MusicModel.ChartItem">
+              <MappingFragment StoreEntitySet="ChartItems">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="ChartReleaseID" ColumnName="ChartReleaseID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChartReleases">
+            <EntityTypeMapping TypeName="MusicModel.ChartReleas">
+              <MappingFragment StoreEntitySet="ChartReleases">
+                <ScalarProperty Name="Released" ColumnName="Released" />
+                <ScalarProperty Name="ChartID" ColumnName="ChartID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Charts">
+            <EntityTypeMapping TypeName="MusicModel.Chart">
+              <MappingFragment StoreEntitySet="Charts">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChartReleaseSongs">
+            <EntityTypeMapping TypeName="MusicModel.ChartReleaseSong">
+              <MappingFragment StoreEntitySet="ChartReleaseSongs">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="ChartReleaseID" ColumnName="ChartReleaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
